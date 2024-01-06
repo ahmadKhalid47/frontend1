@@ -1,0 +1,46 @@
+body {
+  background-color: brown;
+}
+
+.linkStyle {
+  color: antiquewhite;
+  font-size: x-large;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.textLinkStyle {
+  color: black;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.fullWidthLinkStyle {
+  color: black;
+  text-decoration: none;
+}
+
+.iconStyle {
+  cursor: pointer;
+  font-size: xx-large;
+}
+
+.inputStyle {
+  font-size: x-large;
+}
+
+.cursorPointer {
+  cursor: pointer;
+}
+
+.messageDiv {
+  height:90%;
+}
+
+.messageInput {
+  height: 10%;
+}
+
+.backgroundColor{
+  background-color: rgb(255, 235, 215);
+}
