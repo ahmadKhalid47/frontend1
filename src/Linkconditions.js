@@ -46,7 +46,7 @@ function Linkconditions() {
     <>
       <Router>
         <div
-          className="bg-primary"
+          className="backgroundColor"
           style={{ maxHeight: "fit-content", minHeight: "100vh" }}
         >
           <div
