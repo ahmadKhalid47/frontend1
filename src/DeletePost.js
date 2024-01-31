@@ -12,6 +12,7 @@ function DeletePost(p) {
   let { token } = useContext(ProfileContext);
   let { target } = p;
   let apiKey = process.env.REACT_APP_API_KEY;
+  let [deleteLoader, setDeleteLoader] = useState(false);
 
   function trueToggel() {
     setDeleteToggel(true);
@@ -22,11 +23,18 @@ function DeletePost(p) {
   }
 
   async function deletePost() {
-    await axios.delete(`${apiKey}/deletePost/${target}`, {
-      headers: {
-        Authorization: token,
-      },
-    });
+    try {
+      setDeleteLoader(true);
+      await axios.delete(`${apiKey}/deletePost/${target}`, {
+        headers: {
+          Authorization: token,
+        },
+      });
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setDeleteLoader(false);
+    }
     falseToggel();
     setReloader(reloader + 1);
   }
@@ -42,6 +50,7 @@ function DeletePost(p) {
         <div className="d-flex justify-content-end w-100 rounded-top">
           {!deleteToggel ? (
             <Button
+              disabled={deleteLoader}
               onMouseEnter={trueToggel}
               variant="danger"
               size="sm"
@@ -56,6 +65,7 @@ function DeletePost(p) {
             >
               <h5 className="px-2">are you sure: </h5>
               <Button
+                disabled={deleteLoader}
                 onClick={deletePost}
                 size="sm"
                 className="rounded-bottom-0"

@@ -19,10 +19,12 @@ function Share(p) {
     dataGetterFunction("getfollowingsList", setFollowingsList, setLoader);
   }, [token, user]);
 
+  let targetPicName = targetedPic.replaceAll("/", "-");
+  
   async function share() {
     if (selectedPeople.length !== 0) {
       await axios.post(
-        `${apiKey}/share/${user}/${targetedPic}`,
+        `${apiKey}/share/${user}/${targetPicName}`,
         { selectedPeople },
         {
           headers: {

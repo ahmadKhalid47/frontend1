@@ -8,6 +8,7 @@ import FollowUnfollow from "./FollowUnfollow";
 import dataGetterFunction from "./DateGetterFunction";
 import { Navigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
+
 function Profile() {
   let token = localStorage.getItem("token");
   let user = localStorage.getItem("email");

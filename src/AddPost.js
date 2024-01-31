@@ -13,6 +13,7 @@ function AddPost() {
   let user = localStorage.getItem("email");
   let [loader, setLoader] = useState(true);
   let apiKey = process.env.REACT_APP_API_KEY;
+  let [buttonDisable, setButtonDisable] = useState(false);
 
   useEffect(() => {
     dataGetterFunction("addPost", setData, setLoader);
@@ -27,13 +28,21 @@ function AddPost() {
     let formData = new FormData();
     formData.append("image", image);
     formData.append("caption", caption);
-    await axios.post(`${apiKey}/post/${user}`, formData, {
-      headers: {
-        Authorization: token,
-      },
-    });
+    try {
+      setButtonDisable(true);
+      await axios.post(`${apiKey}/post/${user}`, formData, {
+        headers: {
+          Authorization: token,
+        },
+      });
+    } catch (err) {
+      alert(
+        "this particular image cannot be uploaded, please try another image"
+      );
+    } finally {
+      setButtonDisable(false);
+    }
     setCaption("");
-    setImage(null);
   }
   return (
     <>
@@ -71,7 +80,11 @@ function AddPost() {
                 onChange={(e) => setCaption(e.target.value)}
                 className="rounded-0"
               />
-              <Button variant="success rounded-0" onClick={() => post()}>
+              <Button
+                disabled={buttonDisable}
+                variant="success rounded-0"
+                onClick={() => post()}
+              >
                 Post
               </Button>
             </div>

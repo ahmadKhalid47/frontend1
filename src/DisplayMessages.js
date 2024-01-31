@@ -74,9 +74,7 @@ function DisplayMessages() {
                 >
                   {messagesData[messagesData.length - (key + 1)].pic ? (
                     <Image
-                      src={`../${
-                        messagesData[messagesData.length - (key + 1)].pic
-                      }`}
+                      src={messagesData[messagesData.length - (key + 1)].pic}
                       alt=""
                       width={"100px"}
                       rounded
