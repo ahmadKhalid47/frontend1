@@ -8,7 +8,10 @@ function DisplayComments() {
   let { commentsData } = useContext(CommentsContext);
   let { user } = useContext(CommentsContext);
   return commentsData.map((item, key) => (
-    <div className="d-flex justify-content-between align-items-start py-1" key={key}>
+    <div
+      className="d-flex justify-content-between align-items-start py-1"
+      key={key}
+    >
       <div className="d-flex">
         <div>
           <Link
@@ -28,6 +31,7 @@ function DisplayComments() {
                 }
                 alt=""
                 width="30px"
+                height="30px"
                 roundedCircle
                 className="me-1"
               />

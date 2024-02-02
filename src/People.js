@@ -31,6 +31,7 @@ function People() {
                     }
                     alt=""
                     width="30px"
+                    height="30px"
                     roundedCircle
                   />
                   <h4 className="px-1">{item.email}</h4>
