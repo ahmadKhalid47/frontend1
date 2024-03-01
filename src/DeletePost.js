@@ -4,6 +4,7 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "react-bootstrap";
+
 function DeletePost(p) {
   let [deleteToggel, setDeleteToggel] = useState(false);
   let [deleteDivToggel, setDeleteDivToggel] = useState(false);
