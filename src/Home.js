@@ -16,8 +16,8 @@ function Home() {
   let [postCommentdependency, setPostCommentdependency] = useState(0);
   let [commentInput, setCommentInput] = useState("");
   let [selectedPeople, setSelectedPeople] = useState([]);
-  let [showShareList, setShowShareList] = useState(false);
-  let [showCommentInput, setShowCommentInput] = useState(false);
+  let [showShareList, setShowShareList] = useState("");
+  let [showCommentInput, setShowCommentInput] = useState("");
 
   useEffect(() => {
     if (!localStorage.getItem("email")) {
