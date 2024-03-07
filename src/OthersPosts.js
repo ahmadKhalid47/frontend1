@@ -92,8 +92,8 @@ function OthersPosts() {
                       className="iconStyle"
                       title="comment"
                       onClick={() => {
-                        setShowCommentInput(!showCommentInput);
-                        setShowShareList(false);
+                        setShowCommentInput(showCommentInput !== i ? i : null);
+                        setShowShareList(null);
                       }}
                     />
                     <h5>comment</h5>
@@ -104,17 +104,17 @@ function OthersPosts() {
                       className="iconStyle"
                       title="share"
                       onClick={() => {
-                        setShowShareList(!showShareList);
-                        setShowCommentInput(false);
+                        setShowShareList(showShareList !== i ? i : null);
+                        setShowCommentInput(null);
                       }}
                     />
                     <h5>Share</h5>
                   </div>
                 </div>
-                {showShareList ? (
+                {showShareList === i ? (
                   <Share targetedPic={data[data.length - (i + 1)].post} />
                 ) : null}
-                {showCommentInput ? (
+                {showCommentInput === i ? (
                   <PostComment target={data[data.length - (i + 1)]._id} />
                 ) : null}
                 <CommentsComponent target={data[data.length - (i + 1)]._id} />
