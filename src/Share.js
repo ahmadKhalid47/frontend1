@@ -17,6 +17,7 @@ function Share(p) {
 
   useEffect(() => {
     dataGetterFunction("getfollowingsList", setFollowingsList, setLoader);
+    console.log("hello")
   }, [token, user]);
 
   let targetPicName = targetedPic.replaceAll("/", "-");
